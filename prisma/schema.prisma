@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model PermissionType {
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
+  permissions Permission[]
+}
+
+model Permission {
+  id           Int            @id @default(autoincrement())
+  permission   PermissionType @relation(fields: [permissionId], references: [id])
+  permissionId Int
+  roles        Role           @relation(fields: [roleId], references: [id])
+  roleId       Int
+}
+
+model Role {
+  id          Int          @id @unique
+  name        String
+  permissions Permission[]
+}
