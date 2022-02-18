@@ -12,8 +12,10 @@ describe("Role Collection Validator", () => {
     test("Should return errors", () => {
         const result = Role.validator({
             id: "1234567890123",
-            name: 123,
         });
-        expect(result).toEqual([]);
+        expect(result).toHaveLength(1);
+        expect(result && result[0].message).toEqual(
+            "must have required property 'name'",
+        );
     });
 });

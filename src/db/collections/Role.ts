@@ -6,7 +6,7 @@ type RoleCollection = Collection<{ id: string; name: string }>;
 const schema: RoleCollection["schema"] = {
     type: "object",
     properties: {
-        id: { type: "string", pattern: "^[0-9]$", minLength: 13 },
+        id: { type: "string", pattern: "^[0-9]{13,}$" },
         name: { type: "string", minLength: 1 },
     },
     required: ["id", "name"],
