@@ -1,6 +1,6 @@
 import Ajv from "ajv";
 import ajvFormats from "ajv-formats";
-import { UnknownRecord, Validator } from "./types";
+import { UnknownRecord, Validator } from "../types";
 const ajv = new Ajv({ verbose: true, allErrors: true });
 ajvFormats(ajv, ["uuid", "regex"]);
 

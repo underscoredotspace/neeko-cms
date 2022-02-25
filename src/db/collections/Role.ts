@@ -1,19 +1,12 @@
 import { Collection } from "db/types";
-import { createValidator } from "../helpers";
 
-type RoleCollection = Collection<{ id: string; name: string }>;
-
-const schema: RoleCollection["schema"] = {
-    type: "object",
-    properties: {
-        id: { type: "string", pattern: "^[0-9]{13,}$" },
-        name: { type: "string", minLength: 1 },
+export const Role: Collection<{ id: string; name: string }> = {
+    schema: {
+        type: "object",
+        properties: {
+            id: { type: "string", pattern: "^[0-9]{13,}$" },
+            name: { type: "string", minLength: 1 },
+        },
+        required: ["id", "name"],
     },
-    required: ["id", "name"],
-    additionalProperties: false,
-};
-
-export const Role: RoleCollection = {
-    schema,
-    validator: createValidator(schema),
 };

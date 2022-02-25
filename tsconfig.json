@@ -3,6 +3,9 @@
     "compilerOptions": {
         "outDir": ".dist",
         "baseUrl": "./src"
+        // "moduleResolution": "node",
+        // "module": "ESNext",
+        // "target": "ESNext"
     },
     "include": ["src/**/*.ts"],
     "exclude": ["node_modules/**"]
