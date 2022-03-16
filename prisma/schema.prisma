@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model PermissionType {
-  id          String       @id @default(uuid())
+  id          String       @id @default(cuid())
   name        String       @unique
   permissions Permission[]
 }
